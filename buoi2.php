@@ -107,6 +107,17 @@ if ($a==0)
 else  
 echo 'Đây là số nguyên tố'."<br>";
 // 9.Viết chương trình PHP để tính tổng của các số trong một mảng.
+function sumArray($numbers){
+    $sum=0;
+    $count=count($numbers);
+    for($i=0;$i<$count;$i++){
+        $sum+=$numbers[$i];
+    }
+    return $sum;
+}
+$numbers=array(2,6,8,9,10);
+$sum=sumArray($numbers);
+echo "Tổng :".$sum;
 // 10.Viết chương trình PHP để in ra các số Fibonacci trong một khoảng cho trước.
 // 11.Viết chương trình PHP để kiểm tra xem một số có phải là số Armstrong hay không.
 // 12.Viết chương trình PHP để chèn một phần tử vào một mảng ở vị trí bất kỳ.
