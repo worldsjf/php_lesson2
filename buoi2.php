@@ -140,46 +140,137 @@ $end=14;
 fibonacci($start,$end);
 echo "<br>";
 // 11.Viết chương trình PHP để kiểm tra xem một số có phải là số Armstrong hay không.
-function checkArmstrong($n){
-    $sum=0;
-    $num=$n;
-    $count=strlen($n);
-    while ($n>0){
-        $digit=$sum % 10;
-        $sum+=pow($digit,$count);
-        $num=floor($num/10);
+function checkArmstrong($n) {
+    $sum = 0;
+    $num = $n;
+    $count = strlen($n);
+
+    while ($num > 0) {
+        $digit = $num % 10;
+        $sum += pow($digit, $count);
+        $num = floor($num / 10);
     }
-    if($sum==$n){
+
+    if ($sum == $n) {
         return true;
-    }else {
+    } else {
         return false;
     }
 }
-$n=153;
-if(checkArmstrong($n)){
-    echo "$n là số Armstrong";
-} else{
-    echo "không phải";
-}
 
+$n = 153;
+if (checkArmstrong($n)) {
+    echo "$n là số Armstrong";
+} else {
+    echo "$n không là số Armstrong";
+}
 echo "<br>";
 // 12.Viết chương trình PHP để chèn một phần tử vào một mảng ở vị trí bất kỳ.
+function insertArray($array,$element,$position){
+    //kiểm tra vị trí
+    if($position<0||$position>count($array)){
+        echo"Không thể chèn";
+        return;
+    }
+    $newArraay=[];
+    for($i=0;$i<count($array);$i++){
+        if($i==$position){
+            $newArray[]=$element;
+        }
+        $newArray[]=$array[$i];
+        echo "mảng sau khi chèn là";
+        print_r($newArray);
+    }
+}
+$array=[1,2,3,4,5];
+$element=10;
+$position=3;
+insertArray($array,$element,$position);
+echo "<br>";
 // 13.Viết chương trình PHP để loại bỏ các phần tử trùng lặp trong một mảng.
+function removeDuplicate($array){
+    $uniqueArray=array_unique($array);
+    return $uniqueArray;
+}
+$array=[1,2,5,6,7,8,8,7,9];
+echo "Mảng sau khi loại bỏ là:\n";
+print_r(removeDuplicate($array));
+echo "<br>";
 // 14.Viết chương trình PHP để tìm vị trí của một phần tử trong một mảng.
+function findPosition($array,$element){
+    $position=[];
+    foreach($array as $index=>$value){
+        if ($value===$element){
+            $position[]=$index;
+        }
+    }
+    return $position;
+}
+$array=[2,5,2,6,2,5,6,7,4];
+$element=5;
+$findElement=findPosition($array,$element);
+echo "vị trí giá trị $element trong mảng là:";
+foreach($findElement as $position){
+    echo $position ."";
+}
+echo "<br>";
 // 15.Viết chương trình PHP để đảo ngược một chuỗi.
+function revString($string)
+{
+    return strrev($string);
+}
+echo revString("dai hoc thuong mai");
+echo "<br>";
 // 16.Viết chương trình PHP để tính số lượng phần tử trong một mảng.
+function countArray($array){
+    return count($array);
+}
+$array=[1,5,9,10];
+echo countArray($array);
+echo "<br>";
 // 17.Viết chương trình PHP để kiểm tra xem một chuỗi có phải là chuỗi Palindrome hay không.
-// Viết chương trình PHP để đếm số lần xuất hiện của một phần tử trong một mảng.
-// Viết chương trình PHP để sắp xếp một mảng theo thứ tự giảm dần.
-// Viết chương trình PHP để thêm một phần tử vào đầu hoặc cuối của một mảng.
-// Viết chương trình PHP để tìm số lớn thứ hai trong một mảng.
-// Viết chương trình PHP để tìm ước số chung lớn nhất và bội số chung nhỏ nhất của hai số nguyên dương.
-// Viết chương trình PHP để kiểm tra xem một số có phải là số hoàn hảo hay không.
-// Viết chương trình PHP để tìm số lẻ lớn nhất trong một mảng.
-// Viết chương trình PHP để kiểm tra xem một số có phải là số nguyên tố hay không.
-// Viết chương trình PHP để tìm số dương lớn nhất trong một mảng.
-// Viết chương trình PHP để tìm số âm lớn nhất trong một mảng.
-// Viết chương trình PHP để tính tổng các số lẻ từ 1 đến n.
-// Viết chương trình PHP để tìm số chính phương trong một khoảng cho trước.
-// Viết chương trình PHP để kiểm tra xem một chuỗi có phải là chuỗi con của một chuỗi khác hay không.
+function checkPalindrome($string){
+    if ($string == strrev($string))
+        return "đúng";
+    else 
+        return "không";
+}
+echo checkPalindrome("deed");
+echo "<br>";
+// 18.Viết chương trình PHP để đếm số lần xuất hiện của một phần tử trong một mảng.
+function countElement($array,$element){
+    $count=0;
+    foreach($array as $value){
+        if ($value == $element){
+            $count++;
+        }
+    }
+    return $count;
+}
+$array=[1,5,8,94,2,7,5];
+$element=5;
+echo countElement($array,$element);
+echo "<br>";
+// 19.Viết chương trình PHP để sắp xếp một mảng theo thứ tự giảm dần.
+function descend($array){
+    rsort($array);
+    return $array;
+}
+$croce=array(7,8,10,6,5,9);
+$sorted=descend($croce);
+foreach($sorted as $value){
+    echo "$value<br>";
+}
+echo "<br>";
+// 20.Viết chương trình PHP để thêm một phần tử vào đầu hoặc cuối của một mảng.
+// 21.Viết chương trình PHP để tìm số lớn thứ hai trong một mảng.
+// 22.Viết chương trình PHP để tìm ước số chung lớn nhất và bội số chung nhỏ nhất của hai số nguyên dương.
+// 23.Viết chương trình PHP để kiểm tra xem một số có phải là số hoàn hảo hay không.
+// 24.Viết chương trình PHP để tìm số lẻ lớn nhất trong một mảng.
+// 25.Viết chương trình PHP để kiểm tra xem một số có phải là số nguyên tố hay không.
+// 26.Viết chương trình PHP để tìm số dương lớn nhất trong một mảng.
+// 27.Viết chương trình PHP để tìm số âm lớn nhất trong một mảng.
+// 28Viết chương trình PHP để tính tổng các số lẻ từ 1 đến n.
+// 29.Viết chương trình PHP để tìm số chính phương trong một khoảng cho trước.
+// 30.Viết chương trình PHP để kiểm tra xem một chuỗi có phải là chuỗi con của một chuỗi khác hay không.
 ?>
