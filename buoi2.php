@@ -118,8 +118,51 @@ function sumArray($numbers){
 $numbers=array(2,6,8,9,10);
 $sum=sumArray($numbers);
 echo "Tổng :".$sum;
+echo "<br>";
 // 10.Viết chương trình PHP để in ra các số Fibonacci trong một khoảng cho trước.
+function fibonacci($start,$end){
+    $f=[];
+    $f[0]=0;
+    $f[1]=1;
+    echo "Các số Fibonacci trong khoảng bắt đầu $start đến $end là:\n";
+    if ($start<=$f[0]){
+        echo $f[0] ."";    
+    }
+    for($i=1;$f[$i]<=$end;$i++){
+        if ( $f[$i]>=$start){
+            echo $f[$i] ."";
+        }
+        $f[$i+1]=$f[$i]+$f[$i-1];
+    }
+}
+$start=0;
+$end=14;
+fibonacci($start,$end);
+echo "<br>";
 // 11.Viết chương trình PHP để kiểm tra xem một số có phải là số Armstrong hay không.
+function checkArmstrong($n){
+    $sum=0;
+    $num=$n;
+    $count=strlen($n);
+    while ($n>0){
+        $digit=$sum % 10;
+        $sum+=pow($digit,$count);
+        $num=floor($num/10);
+    }
+    if($sum==$n){
+        return true;
+    }else {
+        return false;
+    }
+}
+$n=153;
+if(checkArmstrong($n)){
+    echo "$n là số Armstrong";
+} else{
+    echo "không phải";
+}
+
+echo "<br>";
 // 12.Viết chương trình PHP để chèn một phần tử vào một mảng ở vị trí bất kỳ.
 // 13.Viết chương trình PHP để loại bỏ các phần tử trùng lặp trong một mảng.
 // 14.Viết chương trình PHP để tìm vị trí của một phần tử trong một mảng.
