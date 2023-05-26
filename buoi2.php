@@ -131,7 +131,7 @@ foreach ($primeNumbers as $prime) {
 echo "<br>";
 
 // 9
-echo "9.Viết chương trình PHP để tính tổng của các số trong một mảng.echo "
+echo "9.Viết chương trình PHP để tính tổng của các số trong một mảng.echo <br>";
 function sumArray($numbers){
     $sum=0;
     $count=count($numbers);
@@ -488,7 +488,7 @@ $sum = sumOdd($n);
 echo "Tổng các số lẻ từ 1 đến $n là: $sum";
 echo "<br>"; 
 // 29.
-echo "Viết chương trình PHP để tìm số chính phương trong một khoảng cho trước.<br>";
+echo "29.Viết chương trình PHP để tìm số chính phương trong một khoảng cho trước.<br>";
 
 function perfectSquare($num)
 {
@@ -530,7 +530,7 @@ if (count($perfectSquares) > 0) {
     echo "Không có số chính phương nào từ $start đến $end.";
 }
 // 30.
-echo "Viết chương trình PHP để kiểm tra xem một chuỗi có phải là chuỗi con của một chuỗi khác hay không.<br>";
+echo "30.Viết chương trình PHP để kiểm tra xem một chuỗi có phải là chuỗi con của một chuỗi khác hay không.<br>";
 function containString($string, $contain)
 {
     return strstr($string, $contain);
